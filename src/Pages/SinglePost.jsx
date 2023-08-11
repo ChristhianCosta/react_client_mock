@@ -4,6 +4,8 @@ import { PostWrapper, PostCard, PostData } from "../components/posting"
 import { useParams } from "react-router-dom"
 import { Nav } from "../components/nav"
 
+import { PostSection, PostInfo, PostContent } from "../components/singlepost/singlepost"
+
 
 
 export function PostId(){
@@ -21,7 +23,7 @@ export function PostId(){
     return(
 
         <>
-            <Nav/>
+            {/*<Nav/>
             <h1>Single post</h1>
             <PostWrapper>
                 
@@ -38,7 +40,27 @@ export function PostId(){
                         </PostData>
                     </PostCard>
             
-            </PostWrapper>
+                </PostWrapper>*/}
+
+                <PostSection>
+                    <PostInfo>
+                        <div>
+                            <h1>
+                                {singlePost.title}
+                            </h1>
+                            <h2>Subtítulo</h2>
+                        </div>
+                        <img src="" alt={singlePost.image} />
+                        <p>Autor:</p>
+                    </PostInfo>
+                    <PostContent>
+                        <p>
+                            {singlePost.content}
+                        </p>
+                    </PostContent>
+                </PostSection>
+
+
         </>
         
     )
