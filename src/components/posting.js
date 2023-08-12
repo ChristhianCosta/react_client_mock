@@ -1,31 +1,35 @@
 import styled from "styled-components"
 
+export const StyledDiv = styled.div`
+  width: 100vw;
+  background: black;
+  display: flex;
+  justify-content: center;
+`
+
 export const PostWrapper = styled.section`
-    width: 100vw;
-    /*display: flex;
-    flex-direction: row;
-    justify-content: space-between;*/
+  display: grid;
+  grid-template-columns: 200px 200px 200px;
+  //grid-template-rows: 200px 200px;
+  grid-gap: 30px 120px;
 
-    display: grid;
-    grid-template-columns: 200px 200px 200px;
-    //grid-template-rows: 200px 200px;
-    gap: 100px;
-
-    padding: 20px;
-
-
-    margin: 0 auto;
+  background-color: black;
+  justify-items: center;
 `
 
 export const PostCard = styled.div`
   width: 300px;
   //height: 100px;
-  background-color: whitesmoke;
+  background-color: #343434;
   border-radius: 30px 20px;
+  
+
+  
 
   >*{
-    background-color: none;
+    //background-color: black;
     color: black;
+    padding: 10px;
   }
 
 

@@ -12,6 +12,8 @@ export const FormContainer = styled.section`
 
 
     margin: 1rem 0;
+    background-color: black;
+
 
   > div{
     

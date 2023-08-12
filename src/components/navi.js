@@ -5,4 +5,6 @@ export const Navi = styled.nav`
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    background-color: black;
+
 `

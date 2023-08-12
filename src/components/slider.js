@@ -5,6 +5,8 @@ export const Container = styled.div`
     justify-content: center;
 
     flex-direction: column;
+    background-color: black;
+
 `
 
 export const Setas = styled.div`

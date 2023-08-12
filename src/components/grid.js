@@ -7,9 +7,9 @@ export const Servicecontainer = styled.section`
     flex-direction: row;
     justify-content: space-between;
     padding: 20px;
+    background-color: black;
 
 
-    margin: 1rem 0;
 `
 export const ServiceText =styled.div`
     text-align: center;

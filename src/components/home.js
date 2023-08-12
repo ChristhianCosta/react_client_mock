@@ -6,7 +6,7 @@ export const HomeContainer = styled.section`
     flex-direction: row;
     justify-content: space-between;
     padding: 20px;
-    margin: 1rem 0;
+    background-color: black;
 
     >*{
         width: 30%;
