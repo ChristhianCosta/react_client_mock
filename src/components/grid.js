@@ -6,7 +6,7 @@ export const Servicecontainer = styled.section`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 20px;
+    //padding: 20px;
     background-color: black;
 
 

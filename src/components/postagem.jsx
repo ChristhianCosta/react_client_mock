@@ -25,15 +25,11 @@ export function Postagem(){
                             <h2 onClick={() => {
                             navigation(`/post/${value._id}`);
                             }} > {value.title} </h2>
+                            
                             <PostData>
-                                <p>{value.content}</p>
+                                <p>{value.category}</p>
                             </PostData>
-                            <PostData>
-                                <p>{value.category}, {value.updatedAt}</p>
-                            </PostData>
-                            <PostData>
-                                <p>{value._id}</p>
-                            </PostData>
+                            
                         </PostCard>)
                     })}
                 </PostWrapper>
