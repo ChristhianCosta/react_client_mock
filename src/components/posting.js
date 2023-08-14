@@ -27,9 +27,9 @@ export const PostCard = styled.div`
   
 
   >*{
-    //background-color: black;
     color: black;
     padding: 10px;
+    margin: 0px;
   }
 
 
@@ -37,7 +37,7 @@ export const PostCard = styled.div`
   >h2{
     color: #F6EB37;
     text-align: center;
-    font-family: Roboto;
+    //font-family: Roboto;
   }
 
 `
@@ -47,7 +47,8 @@ export const PostData = styled.div`
     color: black;
 
     >p{
-        background-color: white;
+        //background-color: white;
         color: black;
+        margin: 0px;
     }
 `
