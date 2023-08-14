@@ -1,83 +1,81 @@
 import { Formik, Form, Field } from "formik";
 import { FormContainer, FormWrapper } from "./postagem";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 
+export const CriarPost = () => {
+  const navigation = useNavigate()
 
-export const CriarPost = ()=>{
-    const initialValues = {
-        title: "",
-        category: "",
-        content:"",
-        image: "",
-      };
-    
+  const initialValues = {
+    title: "",
+    category: "",
+    content: "",
+    image: "",
+  };
 
-    
-      const onSubmit = (data) => {
-        axios.post("http://localhost:3000/post/criar", data).then((response) => {
-          console.log("FUNCIONA!!!");
-          
-        
-        });
-      };
+  const onSubmit = (data) => {
+    axios.post("http://localhost:3000/post/criar", data).then((response) => {
+        navigation('/')
+    });
+  };
 
-    return (
-            <FormContainer>
-                <div>
-                  <Formik
-                  
-                    initialValues={initialValues}
-                    onSubmit={onSubmit}
-                  >
-                    <Form className="formContainer">
-                      
-                          <div>
-                              <label>Title: </label>
-                              <Field
-                                id="inputCreatePost"
-                                name="title"
-                                placeholder="Título"
-                                autoComplete="off"
-                              />
-                          </div>
+  return (
+    <FormContainer>
+      <div>
+        <Formik
 
-                          <div>
-                              <label>Categoria: </label>
-                              <Field
-                                id="category"
-                                name="category"
-                                placeholder="Processo seletivo, news etc"
-                                autoComplete="off"
-                              />
-                          </div>
-                      
+          initialValues={initialValues}
+          onSubmit={onSubmit}
+        >
+          <Form className="formContainer">
 
-                      <div id = "contentDiv">
-                          <label>Conteúdo: </label>
-                          <Field
-                            id="content"
-                            name="content"
-                            placeholder="Conteúdo do post"
-                            autoComplete="off"
-                            as = "textarea"
-                          />
-                      </div>
+            <div>
+              <label>Title: </label>
+              <Field
+                id="inputCreatePost"
+                name="title"
+                placeholder="Título"
+                autoComplete="off"
+              />
+            </div>
 
-                      <div>
-                          <label>Imagem? </label>
-                          <Field
-                            id="image"
-                            name="image"
-                            placeholder="Trabalhando nisso"
-                            autoComplete="off"
-                          />
-                      </div>
+            <div>
+              <label>Categoria: </label>
+              <Field
+                id="category"
+                name="category"
+                placeholder="Processo seletivo, news etc"
+                autoComplete="off"
+              />
+            </div>
 
-                      <button type="submit"> Create Post</button>
-                    </Form>
-                  </Formik>
-                </div>
-            </FormContainer>
-    )
+
+            <div id="contentDiv">
+              <label>Conteúdo: </label>
+              <Field
+                id="content"
+                name="content"
+                placeholder="Conteúdo do post"
+                autoComplete="off"
+                as="textarea"
+              />
+            </div>
+
+            <div>
+              <label>Imagem? </label>
+              <Field
+                id="image"
+                name="image"
+                placeholder="Trabalhando nisso"
+                autoComplete="off"
+              />
+            </div>
+
+            <button type="submit" > Create Post</button>
+          </Form>
+        </Formik>
+      </div>
+    </FormContainer>
+  )
 }

@@ -6,5 +6,10 @@ export const Navi = styled.nav`
     flex-direction: row;
     justify-content: space-around;
     background-color: black;
+    align-items: center;
+
+    >*{
+        margin: 5px;
+    }
 
 `

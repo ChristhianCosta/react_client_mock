@@ -7,7 +7,7 @@ export function Nav(){
 
     return(
         <Navi>
-            <hr />
+           
                     
             <button onClick={() => {
                     navigation(`/`);
@@ -16,7 +16,7 @@ export function Nav(){
             </button>
             
             <button onClick={() => {
-                    navigation(`/blog`);
+                    navigation(`/blogpage`);
                     }} >
                 blog
             </button>
@@ -33,7 +33,7 @@ export function Nav(){
                 posts
             </button>
             
-            <hr />
+            
     
         </Navi>
     )
