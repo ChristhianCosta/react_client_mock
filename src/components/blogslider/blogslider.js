@@ -16,11 +16,13 @@ export const BlogAside = styled.div`
     width: 20%;
     height: 70vh;
     background-color: #000;
+
+    align-self: flex-start;
 `
 
 export const BlogCarousel = styled.div`
     width: 80%;
-    height: 100vh;
+    min-height: 100vh;
     //background-color: beige;
     display: flex;
     flex-direction: column;
@@ -36,10 +38,7 @@ export const Roleta = styled.div`
     justify-content: center;
 
     >div{
-        //display: flex;
-        //align-items: center;
-        //justify-content: center;
-        width: 800px;
+       width: 800px;
     }
     
 `
@@ -47,6 +46,7 @@ export const Roleta = styled.div`
 export const BlogCard = styled.div`
     background-color: #a9a9a9;
     width: 200px;
+    height: 300px;
 
     
     >h4{

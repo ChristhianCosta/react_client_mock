@@ -8,7 +8,7 @@ import { Routes } from './Routes/index.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <App />
+    {/*<App />*/}
     <Routes/> 
     
   </React.StrictMode>,

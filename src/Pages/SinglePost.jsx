@@ -1,10 +1,10 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
-import { PostWrapper, PostCard, PostData } from "../components/posting"
 import { useParams } from "react-router-dom"
 import { Nav } from "../components/nav"
+import { BlogHeader } from "../components/blogslider/blogheader"
 
-import { PostSection, PostInfo, PostContent } from "../components/singlepost/singlepost"
+import { PostSection, PostInfo, PostContent, SingleContainer } from "../components/singlepost/singlepost"
 
 
 
@@ -22,26 +22,9 @@ export function PostId(){
 
     return(
 
-        <>
-            {/*<Nav/>
-            <h1>Single post</h1>
-            <PostWrapper>
-                
-                    <PostCard>
-                        <h2> {singlePost.title} </h2>
-                        <PostData>
-                            <p>{singlePost.content}</p>
-                        </PostData>
-                        <PostData>
-                            <p>{singlePost.category}, {singlePost.updatedAt}</p>
-                        </PostData>
-                        <PostData>
-                            <p>{singlePost._id}</p>
-                        </PostData>
-                    </PostCard>
-            
-                </PostWrapper>*/}
-
+        <SingleContainer>
+                <BlogHeader/>
+                <Nav/>
                 <PostSection>
                     <PostInfo>
                         <div>
@@ -61,7 +44,7 @@ export function PostId(){
                 </PostSection>
 
 
-        </>
+        </SingleContainer>
         
     )
 

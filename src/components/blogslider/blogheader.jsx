@@ -5,6 +5,7 @@ const Navi = styled.nav`
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
     background-color: #857F7F;
 `
 
@@ -13,7 +14,7 @@ const NavItem = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    align-items: center;
+    
 
     >p{
         color: rgba(255, 255, 255, 0.80);

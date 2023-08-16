@@ -1,10 +1,16 @@
 import styled from "styled-components";
 
+export const SingleContainer = styled.section`
+    width: 100vw;
+    min-height: 100vh;
+`
+
 export const PostSection = styled.section`
     width: 100vw;
-        display: flex;
+    display: flex;
     background-color: #fff;
     flex-direction: column;
+    align-items: center;
 `
 
 export const PostInfo = styled.div`
