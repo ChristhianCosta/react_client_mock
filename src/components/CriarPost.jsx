@@ -1,80 +1,63 @@
-import { Formik, Form, Field } from "formik";
 import { FormContainer, FormWrapper } from "./postagem";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 
 export const CriarPost = () => {
   const navigation = useNavigate()
 
-  const initialValues = {
-    title: "",
-    category: "",
-    content: "",
-    image: "",
-  };
+  const [file, setFile] = useState('')
 
-  const onSubmit = (data) => {
-    axios.post("http://localhost:3000/post/criar", data).then((response) => {
-        navigation('/')
+  function handleImage(e){
+    console.log(e.target.files)
+    setFile(e.target.files[0])
+  }
+
+  function handlePost(e){
+    const data = new FormData()
+    
+    data.append('title', title)
+    data.append('category', category)
+    data.append('content', content)
+
+    data.append('file', file)
+    
+    console.log(data)
+    axios.post("http://localhost:3000/post/criarmulti", data).then((res) => {
+        //navigation('/')
+        console.log(res)
+    });
+  }
+
+  function onSubmit(data) {
+    axios.post("http://localhost:3000/post/criarmulti", data).then((response) => {
+        //navigation('/')
+        console.log(data)
     });
   };
 
   return (
     <FormContainer>
       <div>
-        <Formik
+          <form action="POST" encType="multipart/form-data" >
+              <label htmlFor="title">Título: </label>
+              <input type="text" name="title" id="title" /> <br />
 
-          initialValues={initialValues}
-          onSubmit={onSubmit}
-        >
-          <Form className="formContainer">
+              <label htmlFor="category">Categoria: </label>
+              <input type="text" name="category" id="category" />
 
-            <div>
-              <label>Title: </label>
-              <Field
-                id="inputCreatePost"
-                name="title"
-                placeholder="Título"
-                autoComplete="off"
-              />
-            </div>
+              <label htmlFor="content">Conteúdo </label>
+              <textarea name="content" id="content" cols="30" rows="10">
 
-            <div>
-              <label>Categoria: </label>
-              <Field
-                id="category"
-                name="category"
-                placeholder="Processo seletivo, news etc"
-                autoComplete="off"
-              />
-            </div>
+              </textarea>
 
+              <label htmlFor="file">Imagem: </label>
+              <input type="file" name="file" id="file" onChange={handleImage} />
+              <br />
+          </form>
 
-            <div id="contentDiv">
-              <label>Conteúdo: </label>
-              <Field
-                id="content"
-                name="content"
-                placeholder="Conteúdo do post"
-                autoComplete="off"
-                as="textarea"
-              />
-            </div>
-
-            <div>
-              <label>Imagem? </label>
-              <Field
-                id="image"
-                name="image"
-                placeholder="Trabalhando nisso"
-                autoComplete="off"
-              />
-            </div>
-
-            <button type="submit" > Create Post</button>
-          </Form>
-        </Formik>
+          <button type="submit" onClick={handlePost}> Create Post</button>
       </div>
     </FormContainer>
   )
