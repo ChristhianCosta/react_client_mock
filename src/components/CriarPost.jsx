@@ -17,9 +17,9 @@ export const CriarPost = () => {
   function handlePost(e){
     const data = new FormData()
     
-    data.append('title', title)
-    data.append('category', category)
-    data.append('content', content)
+    data.append('title', title.value)
+    data.append('category', category.value)
+    data.append('content', content.value)
 
     data.append('file', file)
     
