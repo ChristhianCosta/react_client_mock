@@ -3,8 +3,12 @@ import styled from "styled-components";
 //confiurações compartilhadas
 
 
+
+
 export const FormContainer = styled.section`
     width: 100vw;
+    min-height: 100vh;
+    background-color: white;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -16,11 +20,13 @@ export const FormContainer = styled.section`
 
 
   > div{
-    
-    width: 40vw;
+    background-color: white;
+    width: 80vw;
+    min-height: 50vh;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-around;
+    
   }
 
   .formContainer{
@@ -58,6 +64,20 @@ export const FormContainer = styled.section`
       width: 30%;
       background-color: #F6EB37;
     }
+  }
+
+  .editor{
+    .ql-container{
+      height: 400px;
+    }
+    
+    margin-bottom: 10px;
+  }
+
+  .info{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
   }
 `
 
@@ -107,16 +127,13 @@ export const StyledTextArea = styled.textarea`
   box-sizing: border-box;
 `;
 export const StyledButton = styled.button`
-  display: block;
-  background-color: #f7797d;
-  color: #fff;
-  font-size: 0.9rem;
-  border: 0;
-  border-radius: 5px;
-  height: 40px;
-  padding: 0 20px;
-  cursor: pointer;
-  box-sizing: border-box;
+        padding: -40px;
+        width: 16.5625rem;
+        height: 4.12125rem;
+        flex-shrink: 0;
+        border-radius: 5px;
+        background: #F6EB37;
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 `;
 
 export const StyledFieldset = styled.fieldset`

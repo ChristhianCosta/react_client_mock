@@ -7,7 +7,7 @@ import axios from "axios";
 
 import { BlogMain, BlogAside, BlogCarousel, BlogRecent, BlogCard, Roleta, PostData } from "./blogslider";
 
-import { PostCard } from "../posting";
+import { PostCard } from "../PostGrid/posting";
 
 export function BlogSlider() {
     const settings = {

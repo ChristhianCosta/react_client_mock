@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { Nav } from "../components/nav"
 import { BlogHeader } from "../components/blogslider/blogheader"
+import ReactQuill from "react-quill"
 
 import { PostSection, PostInfo, PostContent, SingleContainer } from "../components/singlepost/singlepost"
 
@@ -33,13 +34,15 @@ export function PostId(){
                             </h1>
                             <h2>Subtítulo</h2>
                         </div>
-                        <img src="" alt={singlePost.image} />
+                        <img src={'http://localhost:3000' + singlePost.image} alt={singlePost.image} />
                         <p>Autor:</p>
                     </PostInfo>
                     <PostContent>
-                        <p>
-                            {singlePost.content}
-                        </p>
+                        <ReactQuill
+                            value={singlePost.content}
+                            readOnly={true}
+                            theme={"bubble"}
+                            />
                     </PostContent>
                 </PostSection>
 
