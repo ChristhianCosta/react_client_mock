@@ -16,8 +16,8 @@ export const Login = () => {
     data.append('email', email.value)
     data.append('password', password.value)
     data.append("test", "test string")
-    console.log(email.value)
-    axios.post("http://localhost:3000/user/login", {email:email.value, password:password.value}).then((res) => {
+    
+    axios.post("http://localhost:3000/user/login", {email:email.value, password:password.value},{withCredentials:true}).then((res) => {
         //navigation('/')
         console.log(res)
     });
