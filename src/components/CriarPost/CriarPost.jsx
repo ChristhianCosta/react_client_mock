@@ -29,7 +29,7 @@ export const CriarPost = () => {
     data.append('file', file)
     
     console.log(data)
-    axios.post("http://localhost:3000/post/criarmulti", data).then((res) => {
+    axios.post("http://localhost:3000/user/login", data).then((res) => {
         //navigation('/')
         console.log(res)
     });
@@ -48,9 +48,7 @@ export const CriarPost = () => {
               </div>
 
               <div>
-                <label htmlFor="content">Conteúdo </label>
-                {/*<textarea name="content" id="content" cols="30" rows="10">
-                </textarea>*/}
+                <label htmlFor="content">Conteúdo </label>                
                 <ReactQuill theme="snow" value={edit} onChange={setEdit} className="editor" />
               </div>
 

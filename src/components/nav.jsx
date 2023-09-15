@@ -33,7 +33,11 @@ export function Nav(){
                 posts
             </button>
             
-            
+            <button onClick={() => {
+                    navigation(`/login`);
+                    }} >
+                login
+            </button>
     
         </Navi>
     )
