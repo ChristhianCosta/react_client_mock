@@ -34,7 +34,13 @@ export function PostId(){
                             </h1>
                             <h2>Subtítulo</h2>
                         </div>
-                        <img src={'http://localhost:3000' + singlePost.image} alt={singlePost.image} />
+                        
+                    </PostInfo>
+                    <PostInfo>
+                        <img src={'http://localhost:3000/' + singlePost.image} alt={'http://localhost:3000/' + singlePost.image} />
+                        
+                    </PostInfo>
+                    <PostInfo>
                         <p>Autor:</p>
                     </PostInfo>
                     <PostContent>
