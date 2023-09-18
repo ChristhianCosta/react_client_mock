@@ -5,6 +5,7 @@ import { Posts } from "../Pages/Posts";
 import { PostId } from "../Pages/SinglePost";
 import { BlogPage } from "../Pages/BlogPage";
 import { UserLogin } from "../Pages/Login";
+import { UserTeste } from "../Pages/FormHook";
 
 export function AppRoutes(){
     return(
@@ -15,6 +16,7 @@ export function AppRoutes(){
             <Route path="/post/:id" element={<PostId/>} />
             <Route path="/blogpage" element={<BlogPage/>} />
             <Route path="/login" element={<UserLogin/>} />
+            <Route path="/form" element={<UserTeste/>} />
 
         </Routes>
     )

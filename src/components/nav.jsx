@@ -38,6 +38,12 @@ export function Nav(){
                     }} >
                 login
             </button>
+            
+            <button onClick={() => {
+                    navigation(`/form`);
+                    }} >
+                form
+            </button>
     
         </Navi>
     )
