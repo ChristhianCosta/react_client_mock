@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const StyledLogin = styled.div`
   width: 100vw;
-  height: 100vh;
+ // height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -10,6 +10,6 @@ export const StyledLogin = styled.div`
 
 
   >*{
-    width: 80%;
+    width: 60%;
   }
 `
