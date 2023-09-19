@@ -4,11 +4,24 @@ import { StyledLogin } from "./loginForm";
 import React, { useState } from 'react';
 
 
+const onSubmit = async (values, actions) => {
+  const data = new FormData()
+  console.log("onsubmit")
+  console.log(values.email)
+  data.append('email', values.email)
+  data.append('password', values.password)
+  
+
+  for (var key of data.entries()) {
+    console.log(key[0] + ', ' + key[1])
+  }
+};
+
 export default function TestForm() {
 
   const LoginSchema = Yup.object().shape({
-    email:Yup.string().email('Houve um error').min(6, 'digite um email válido').max(24, 'Email muito longo').required('Esse campo é requerido'),
-    password:Yup.string().min(6, 'digite um email válido').required('Esse campo é requerido'),
+    email:Yup.string().email('digite um email válido').required('Esse campo é requerido').min(6, 'digite um email válido').max(24, 'Email muito longo'),
+    password:Yup.string().required('Esse campo é requerido').min(6, 'Senha muito curta').required('Esse campo é requerido'),
   })
   
   
@@ -17,19 +30,10 @@ export default function TestForm() {
     password:""
   } 
 
-  const handleSubmit = ()=>{
-    console.log("submit")
-  }
-
   const formik = useFormik({
     initialValues:initalValues,
     validationSchema:LoginSchema,
-    onSubmit: ()=>{
-      console.log("submitting use formik")
-    },
-    handleSubmit: ()=>{
-      console.log("console. log")
-    }
+    onSubmit,
   })
 
   return (
@@ -42,8 +46,10 @@ export default function TestForm() {
                 onChange={formik.handleChange}
                 value={formik.values.email}
                 type={"email"}
-                /*helperText={formik.errors.email ? formik.errors.email : ""}*/
+                onBlur={formik.handleBlur}
                />
+          
+          {formik.errors.email && formik.touched.email && <p className="error">{formik.errors.email}</p>}
         
         </StyledLogin>
         <StyledLogin>
@@ -53,10 +59,10 @@ export default function TestForm() {
                 onChange={formik.handleChange}
                 value={formik.values.password}
                 type={"password"}
-                /*helperText={formik.errors.email ? formik.errors.email : ""}*/
+                onBlur={formik.handleBlur}
                />
         
-        
+        {formik.errors.password && formik.touched.password && <p className="error">{formik.errors.password}</p>}
         </StyledLogin>
         
         <button type={"submit"}>
