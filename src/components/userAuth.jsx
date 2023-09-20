@@ -5,7 +5,7 @@ import { useState } from "react";
 
 
 
-export const Login = () => {
+export const Auth = () => {
   const [edit, setEdit] = useState('');
 
   const navigation = useNavigate()
@@ -17,9 +17,8 @@ export const Login = () => {
     data.append('password', password.value)
     data.append("test", "test string")
     
-    axios.post("http://localhost:3000/user/login", {email:email.value, password:password.value},{withCredentials:true}).then((res) => {
+    axios.get("http://localhost:3000/user/auth", {email:email.value, password:password.value},{withCredentials:true}).then((res) => {
         //navigation('/')
-        
         console.log(res)
     });
   }
@@ -27,6 +26,7 @@ export const Login = () => {
   return (
     <FormContainer style={{background: 'white'}}>
       <div>
+        <h1>Auth</h1>
           <form action="POST" encType="multipart/form-data" >
               <div className="info">
                 <label htmlFor="email">Email: </label>

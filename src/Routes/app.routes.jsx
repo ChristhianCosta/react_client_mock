@@ -6,6 +6,7 @@ import { PostId } from "../Pages/SinglePost";
 import { BlogPage } from "../Pages/BlogPage";
 import { UserLogin } from "../Pages/Login";
 import { UserTeste } from "../Pages/FormHook";
+import { UserAuth } from "../Pages/Auth";
 
 export function AppRoutes(){
     return(
@@ -17,6 +18,7 @@ export function AppRoutes(){
             <Route path="/blogpage" element={<BlogPage/>} />
             <Route path="/login" element={<UserLogin/>} />
             <Route path="/form" element={<UserTeste/>} />
+            <Route path="/auth" element={<UserAuth/>} />
 
         </Routes>
     )

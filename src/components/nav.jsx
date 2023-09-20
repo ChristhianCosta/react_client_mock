@@ -34,9 +34,9 @@ export function Nav(){
             </button>
             
             <button onClick={() => {
-                    navigation(`/login`);
+                    navigation(`/auth`);
                     }} >
-                login
+                auth
             </button>
             
             <button onClick={() => {
