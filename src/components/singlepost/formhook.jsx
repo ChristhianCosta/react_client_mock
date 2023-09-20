@@ -1,23 +1,22 @@
-import { Formik, Field, ErrorMessage, Form, useFormik } from "formik";
+import { useFormik } from "formik";
 import * as Yup from 'yup'
 import { StyledLogin } from "./loginForm";
 import React, { useState } from 'react';
+import axios from "axios";
 
 
-const onSubmit = async (values, actions) => {
-  const data = new FormData()
-  console.log("onsubmit")
-  console.log(values.email)
-  data.append('email', values.email)
-  data.append('password', values.password)
-  
 
-  for (var key of data.entries()) {
-    console.log(key[0] + ', ' + key[1])
-  }
-};
 
 export default function TestForm() {
+
+  const onSubmit = async (values, actions) => {
+
+    axios.post("http://localhost:3000/user/login", {'email':values.email,'password':values.password}).then((res) => {
+      //navigation('/')
+      console.log(res)
+    });
+  };
+
 
   const LoginSchema = Yup.object().shape({
     email:Yup.string().email('digite um email válido').required('Esse campo é requerido').min(6, 'digite um email válido').max(24, 'Email muito longo'),
@@ -38,7 +37,7 @@ export default function TestForm() {
 
   return (
     <main style={{background:'#fff'}}>
-      <form onSubmit={formik.handleSubmit}>
+      <form onSubmit={formik.handleSubmit} encType="multipart/form-data">
         <StyledLogin>
           <label htmlFor="email">email </label>
           <input id="email" label="email"
