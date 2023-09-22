@@ -17,7 +17,7 @@ export const Auth = () => {
     data.append('password', password.value)
     data.append("test", "test string")
     
-    axios.get("http://localhost:3000/user/auth", {email:email.value, password:password.value},{withCredentials:true}).then((res) => {
+    axios.get("http://localhost:3000/user/auth",{withCredentials:true}).then((res) => {
         //navigation('/')
         console.log(res)
     });
