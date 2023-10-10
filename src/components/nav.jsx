@@ -1,9 +1,21 @@
 import { Navi } from "./navi";
 import { useNavigate } from "react-router-dom";
+import axiosPrivate from "../api/axios";
 
 
 export function Nav(){
     const navigation = useNavigate();
+
+    const logout = async () => {
+        try {
+            await axiosPrivate.post('/user/logout').then((res)=>{
+                console.log(res)
+            })
+            
+        } catch (error) {
+            console.log(error)
+        }
+    }
 
     return(
         <Navi>
@@ -42,7 +54,11 @@ export function Nav(){
             <button onClick={() => {
                     navigation(`/form`);
                     }} >
-                form
+                login
+            </button>
+
+            <button onClick={() => logout()}>
+                logout
             </button>
     
         </Navi>
