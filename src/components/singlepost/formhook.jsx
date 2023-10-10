@@ -2,18 +2,29 @@ import { useFormik } from "formik";
 import * as Yup from 'yup'
 import { StyledLogin } from "./loginForm";
 import React, { useState } from 'react';
-import axios from "axios";
+
+import { axiosPrivate } from "../../api/axios";
 
 
 
 
 export default function TestForm() {
 
-  const onSubmit = async (values, actions) => {
+  const [user, setUser] = useState();
 
-    axios.post("http://localhost:3000/user/login", {'email':values.email,'password':values.password}).then((res) => {
+  const onSubmit = async (values) => {
+    axiosPrivate.post("/user/login", {'email':values.email,'password':values.password}).then((res) => {
       //navigation('/')
-      console.log(res)
+      
+      if(res.data.error) {
+        alert(res.data.error)
+      }else{
+        
+        setUser(res.data.logado)
+        
+      }
+
+      
     });
   };
 
@@ -69,6 +80,14 @@ export default function TestForm() {
           </button>
         
       </form>
+
+      
+
+      <span>
+        <p>
+        {user? "bemvindo " + user : ""}
+        </p>
+      </span>
     </main>
   );
 }

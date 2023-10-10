@@ -1,8 +1,9 @@
 import { FormContainer, StyledButton } from "./CriarPost/postagem";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
+import axios from "axios";
+import { axiosPrivate } from "../api/axios";
 
 
 export const Auth = () => {
@@ -17,7 +18,7 @@ export const Auth = () => {
     data.append('password', password.value)
     data.append("test", "test string")
     
-    axios.get("http://localhost:3000/user/auth", {email:email.value, password:password.value},{withCredentials:true}).then((res) => {
+    axiosPrivate.get("http://localhost:3000/user/auth",{withCredentials:true}).then((res) => {
         //navigation('/')
         console.log(res)
     });
